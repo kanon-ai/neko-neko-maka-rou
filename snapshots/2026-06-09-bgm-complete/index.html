@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#24154d">
+  <title>ねこねこ摩訶楼</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">CANDY DUNGEON / FLOOR <span id="floorLabel">1</span></p>
+        <h1>ねこねこ摩訶楼</h1>
+      </div>
+      <div class="audio-controls">
+        <button id="bgmSettingsButton" class="bgm-button" aria-expanded="false" aria-controls="bgmPanel">BGM</button>
+        <button id="soundButton" class="round-button" aria-label="音のオン・オフ">♪</button>
+        <div id="bgmPanel" class="bgm-panel hidden">
+          <div class="bgm-panel-head">
+            <div>
+              <p class="eyebrow">MUSIC BOX</p>
+              <b>BGM設定</b>
+            </div>
+            <button id="bgmCloseButton" aria-label="BGM設定を閉じる">×</button>
+          </div>
+          <label class="bgm-file">
+            <span>好きな曲を選ぶ</span>
+            <input id="bgmFileInput" type="file" accept="audio/*">
+            <i id="bgmFileName">内蔵：まかふしぎワルツ</i>
+          </label>
+          <label class="volume-row">
+            <span>音量</span>
+            <input id="bgmVolume" type="range" min="0" max="100" value="35">
+            <b id="bgmVolumeLabel">35</b>
+          </label>
+          <button id="bgmDefaultButton" class="bgm-default-button">内蔵BGMに戻す</button>
+          <small>MP3 / WAV / OGGなど。選んだ曲はゲーム中ループします。</small>
+        </div>
+      </div>
+    </header>
+
+    <section class="game-grid">
+      <div class="stage-card">
+        <canvas id="game" width="960" height="640" aria-label="ローグゲーム画面"></canvas>
+        <div id="announcement" class="announcement hidden"></div>
+        <div id="startOverlay" class="overlay">
+          <div class="splash-art" role="img" aria-label="猫が不思議なダンジョンを冒険するイメージ"></div>
+          <div class="overlay-card">
+            <p class="eyebrow">A TINY CAT IN A VERY WRONG CASTLE</p>
+            <h2>世界のつじつまを<br>魚で直そう。</h2>
+            <p>鍵を拾い、動く階段へ。敵もあなたも、一歩ずつ動きます。</p>
+            <button id="startButton" class="primary-button">冒険をはじめる</button>
+            <small>矢印 / WASD / 画面ボタンで移動</small>
+          </div>
+        </div>
+        <div id="endOverlay" class="overlay hidden">
+          <div class="overlay-card result-card">
+            <p class="eyebrow" id="resultEyebrow">THE CASTLE SHRUGGED</p>
+            <h2 id="resultTitle">おひるねしました</h2>
+            <p id="resultText"></p>
+            <button id="retryButton" class="primary-button">もう一度もぐる</button>
+          </div>
+        </div>
+      </div>
+
+      <aside class="sidebar">
+        <section class="cat-card">
+          <div class="cat-portrait" aria-hidden="true">
+            <span class="ear left"></span><span class="ear right"></span>
+            <span class="face">•ᴗ•</span>
+            <span class="feather"></span>
+          </div>
+          <div>
+            <p class="eyebrow">ADVENTURER</p>
+            <h2>ミケロ</h2>
+            <div class="hp-row"><span>HP</span><div class="hp-track"><i id="hpBar"></i></div><b id="hpLabel">9 / 9</b></div>
+          </div>
+        </section>
+
+        <section class="status-card">
+          <div><span>階層</span><b id="floorStat">1 / 5</b></div>
+          <div><span>魚</span><b id="fishStat">0</b></div>
+          <div><span>鍵</span><b id="keyStat">なし</b></div>
+          <div><span>撃破</span><b id="killStat">0</b></div>
+        </section>
+
+        <section class="inventory-card">
+          <p class="section-title">もちもの</p>
+          <div class="slots">
+            <button id="fishButton" class="slot" aria-label="魚を食べる"><span>🐟</span><b id="fishCount">0</b><small>Qで食べる</small></button>
+            <div class="slot"><span>🗝</span><b id="keyIcon">?</b><small>出口の鍵</small></div>
+            <div class="slot"><span>🗡</span><b>1</b><small>ねこ剣</small></div>
+          </div>
+        </section>
+
+        <section class="log-card">
+          <p class="section-title">へんな出来事</p>
+          <ol id="log"></ol>
+        </section>
+
+        <section class="controls-card">
+          <div class="dpad">
+            <button data-move="0,-1" aria-label="上">▲</button>
+            <button data-move="-1,0" aria-label="左">◀</button>
+            <button data-wait aria-label="待機">●</button>
+            <button data-move="1,0" aria-label="右">▶</button>
+            <button data-move="0,1" aria-label="下">▼</button>
+          </div>
+          <p><kbd>矢印 / WASD</kbd> 移動　<kbd>Q</kbd> 魚　<kbd>.</kbd> 待機</p>
+        </section>
+      </aside>
+    </section>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
