@@ -18,6 +18,7 @@
     mobileFishCount: document.querySelector("#mobileFishCount"),
     mobileKeyIcon: document.querySelector("#mobileKeyIcon"),
     mobileWeaponIcon: document.querySelector("#mobileWeaponIcon"),
+    mobileArmorIcon: document.querySelector("#mobileArmorIcon"),
     floorLabel: document.querySelector("#floorLabel"),
     floorStat: document.querySelector("#floorStat"),
     levelStat: document.querySelector("#levelStat"),
@@ -409,6 +410,7 @@
     ui.armorStat.textContent = `+${player.armor}`;
     ui.weaponIcon.textContent = `+${player.weapon}`;
     ui.mobileWeaponIcon.textContent = `+${player.weapon}`;
+    ui.mobileArmorIcon.textContent = `+${player.armor}`;
   }
 
   function enemyName(enemy) {

@@ -91,7 +91,7 @@ h1 { margin-bottom: 0; font-size: clamp(26px, 4vw, 48px); letter-spacing: .05em;
 
 #game { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; touch-action: none; }
 
-.mobile-hud, .mobile-items { display: none; }
+.mobile-hud, .mobile-items, .mobile-equipment { display: none; }
 
 .sidebar { display: grid; align-content: start; gap: 12px; }
 .sidebar > section { border-radius: 20px; background: #2f235edd; backdrop-filter: blur(10px); }
@@ -213,9 +213,10 @@ kbd { padding: 2px 4px; border-radius: 4px; color: var(--ink); background: var(-
     display: flex;
     justify-content: center;
     gap: 8px;
-    margin-top: 8px;
+    margin-top: 18px;
   }
-  .mobile-item-button {
+  .mobile-fish-button,
+  .mobile-info-chip {
     display: grid;
     place-items: center;
     min-width: 56px;
@@ -227,8 +228,32 @@ kbd { padding: 2px 4px; border-radius: 4px; color: var(--ink); background: var(-
     background: #171236dd;
     font-weight: 900;
   }
-  .mobile-item-button span { font-size: 21px; line-height: 1; }
-  .mobile-item-button b { color: var(--yellow); font-size: 13px; line-height: 1; }
+  .mobile-fish-button {
+    min-width: 74px;
+    height: 56px;
+    border-color: #fff7dd;
+    color: var(--ink);
+    background: linear-gradient(180deg, var(--yellow), #ffd271);
+    box-shadow: 0 5px 0 #b14892;
+  }
+  .mobile-fish-button span,
+  .mobile-info-chip span { font-size: 21px; line-height: 1; }
+  .mobile-fish-button b,
+  .mobile-info-chip b { color: var(--yellow); font-size: 13px; line-height: 1; }
+  .mobile-fish-button b { color: var(--ink); }
+  .mobile-fish-button small,
+  .mobile-info-chip small { font-size: 9px; line-height: 1; }
+  .mobile-equipment {
+    order: -1;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 6px;
+  }
+  .mobile-info-chip {
+    border-color: #ffffff38;
+    pointer-events: none;
+  }
   .overlay { grid-template-columns: 1fr; background: #180e36aa; }
   .overlay-card { grid-column: 1; margin: 12px; padding: 18px; }
   .overlay-card h2 { font-size: 27px; }
