@@ -158,20 +158,14 @@ kbd { padding: 2px 4px; border-radius: 4px; color: var(--ink); background: var(-
 }
 
 @media (max-width: 650px) {
-  body { padding-bottom: 232px; }
   .game-shell { padding: 10px; }
-  .sidebar { grid-template-columns: 1fr; }
-  .stage-card { min-height: 360px; border-radius: 18px; }
+  .sidebar { grid-template-columns: 1fr; gap: 6px; }
+  .stage-card { min-height: 350px; border-radius: 18px; }
   .overlay { grid-template-columns: 1fr; background: #180e36aa; }
   .overlay-card { grid-column: 1; margin: 12px; padding: 18px; }
   .overlay-card h2 { font-size: 27px; }
   .splash-art { opacity: .48; }
   .controls-card {
-    position: fixed;
-    left: 10px;
-    right: 10px;
-    bottom: max(10px, env(safe-area-inset-bottom));
-    z-index: 20;
     min-height: 0;
     padding: 10px 12px 12px;
     border-radius: 22px;
@@ -196,14 +190,8 @@ kbd { padding: 2px 4px; border-radius: 4px; color: var(--ink); background: var(-
 
 @media (max-width: 650px) and (orientation: landscape), (max-height: 500px) and (orientation: landscape) {
   body { padding-bottom: 0; }
-  .game-shell { padding-right: 170px; }
   .controls-card {
-    position: fixed;
-    left: auto;
-    right: max(8px, env(safe-area-inset-right));
-    bottom: max(8px, env(safe-area-inset-bottom));
-    z-index: 20;
-    width: 148px;
+    width: auto;
     min-height: 0;
     padding: 8px;
     border-radius: 18px;
