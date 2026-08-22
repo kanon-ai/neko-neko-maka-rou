@@ -160,8 +160,8 @@ kbd { padding: 2px 4px; border-radius: 4px; color: var(--ink); background: var(-
 @media (max-width: 650px), (pointer: coarse) {
   .game-shell { padding: 10px; }
   .sidebar { grid-template-columns: 1fr; gap: 6px; }
-  .stage-card { min-height: 350px; border-radius: 18px; }
-  #game { width: min(100%, 330px); aspect-ratio: 1 / 1; margin: auto; }
+  .stage-card { min-height: 310px; border-radius: 18px; }
+  #game { width: min(100%, 300px); aspect-ratio: 1 / 1; margin: auto; }
   .overlay { grid-template-columns: 1fr; background: #180e36aa; }
   .overlay-card { grid-column: 1; margin: 12px; padding: 18px; }
   .overlay-card h2 { font-size: 27px; }
@@ -186,9 +186,7 @@ kbd { padding: 2px 4px; border-radius: 4px; color: var(--ink); background: var(-
   }
   .controls-card p { display: none; }
   .title-button {
-    margin-top: 6px;
-    padding: 6px;
-    font-size: 11px;
+    display: none;
   }
 }
 
