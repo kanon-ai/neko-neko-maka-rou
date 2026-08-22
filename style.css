@@ -232,15 +232,15 @@ kbd { padding: 2px 4px; border-radius: 4px; color: var(--ink); background: var(-
     min-width: 74px;
     height: 56px;
     border-color: #fff7dd;
-    color: var(--ink);
-    background: linear-gradient(180deg, var(--yellow), #ffd271);
+    color: var(--cream);
+    background: linear-gradient(180deg, #5b3aaa, #332064);
     box-shadow: 0 5px 0 #b14892;
   }
   .mobile-fish-button span,
   .mobile-info-chip span { font-size: 21px; line-height: 1; }
   .mobile-fish-button b,
   .mobile-info-chip b { color: var(--yellow); font-size: 13px; line-height: 1; }
-  .mobile-fish-button b { color: var(--ink); }
+  .mobile-fish-button b { color: var(--yellow); }
   .mobile-fish-button small,
   .mobile-info-chip small { font-size: 9px; line-height: 1; }
   .mobile-equipment {
