@@ -11,6 +11,13 @@
     resultText: document.querySelector("#resultText"),
     hpBar: document.querySelector("#hpBar"),
     hpLabel: document.querySelector("#hpLabel"),
+    mobileHpBar: document.querySelector("#mobileHpBar"),
+    mobileHpLabel: document.querySelector("#mobileHpLabel"),
+    mobileFloorLabel: document.querySelector("#mobileFloorLabel"),
+    mobileLevelLabel: document.querySelector("#mobileLevelLabel"),
+    mobileFishCount: document.querySelector("#mobileFishCount"),
+    mobileKeyIcon: document.querySelector("#mobileKeyIcon"),
+    mobileWeaponIcon: document.querySelector("#mobileWeaponIcon"),
     floorLabel: document.querySelector("#floorLabel"),
     floorStat: document.querySelector("#floorStat"),
     levelStat: document.querySelector("#levelStat"),
@@ -381,20 +388,27 @@
     const hpRatio = Math.max(0, player.hp / player.maxHp);
     ui.hpBar.style.width = `${hpRatio * 100}%`;
     ui.hpLabel.textContent = `${Math.max(0, player.hp)} / ${player.maxHp}`;
+    ui.mobileHpBar.style.width = `${hpRatio * 100}%`;
+    ui.mobileHpLabel.textContent = `${Math.max(0, player.hp)}/${player.maxHp}`;
     ui.floorLabel.textContent = floor;
     ui.floorStat.textContent = `${floor} / ${MAX_FLOOR}`;
+    ui.mobileFloorLabel.textContent = `${floor}F`;
     ui.levelStat.textContent = player.level;
+    ui.mobileLevelLabel.textContent = `Lv.${player.level}`;
     ui.xpStat.textContent = `${player.xp} / ${player.nextXp}`;
     ui.fishStat.textContent = player.fish;
     ui.fishCount.textContent = player.fish;
+    ui.mobileFishCount.textContent = player.fish;
     ui.keyStat.textContent = player.hasKey ? "あり" : "なし";
     ui.keyIcon.textContent = player.hasKey ? "✓" : "?";
+    ui.mobileKeyIcon.textContent = player.hasKey ? "✓" : "?";
     ui.killStat.textContent = kills;
     ui.attackStat.textContent = playerAttack();
     ui.defenseStat.textContent = playerDefense();
     ui.weaponStat.textContent = `+${player.weapon}`;
     ui.armorStat.textContent = `+${player.armor}`;
     ui.weaponIcon.textContent = `+${player.weapon}`;
+    ui.mobileWeaponIcon.textContent = `+${player.weapon}`;
   }
 
   function enemyName(enemy) {
@@ -686,6 +700,7 @@
   document.querySelector("#resultTitleButton").addEventListener("click", () => returnToTitle(false));
   document.querySelector("#titleButton").addEventListener("click", () => returnToTitle(true));
   document.querySelector("#fishButton").addEventListener("click", eatFish);
+  document.querySelector("#mobileFishButton").addEventListener("click", eatFish);
   ui.bgmVolume.value = String(Math.round(bgmVolume * 100));
   ui.bgmVolumeLabel.textContent = String(Math.round(bgmVolume * 100));
   ui.bgmSettings.addEventListener("click", () => {

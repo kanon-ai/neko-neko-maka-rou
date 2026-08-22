@@ -91,6 +91,8 @@ h1 { margin-bottom: 0; font-size: clamp(26px, 4vw, 48px); letter-spacing: .05em;
 
 #game { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; touch-action: none; }
 
+.mobile-hud { display: none; }
+
 .sidebar { display: grid; align-content: start; gap: 12px; }
 .sidebar > section { border-radius: 20px; background: #2f235edd; backdrop-filter: blur(10px); }
 
@@ -160,8 +162,75 @@ kbd { padding: 2px 4px; border-radius: 4px; color: var(--ink); background: var(-
 @media (max-width: 650px), (pointer: coarse) {
   .game-shell { padding: 10px; }
   .sidebar { grid-template-columns: 1fr; gap: 6px; }
-  .stage-card { min-height: 310px; border-radius: 18px; }
-  #game { width: min(100%, 300px); aspect-ratio: 1 / 1; margin: auto; }
+  .stage-card { min-height: 350px; border-radius: 18px; }
+  #game { width: min(100%, 330px); aspect-ratio: 1 / 1; margin: auto; }
+  .mobile-hud {
+    position: absolute;
+    inset: 8px;
+    z-index: 2;
+    display: block;
+    pointer-events: none;
+  }
+  .mobile-hp, .mobile-floor, .mobile-items {
+    position: absolute;
+    border: 2px solid #ffffff66;
+    border-radius: 16px;
+    background: #25184fd8;
+    box-shadow: 0 7px 18px #0b0624aa;
+  }
+  .mobile-hp {
+    left: 0;
+    top: 0;
+    display: grid;
+    grid-template-columns: auto 82px auto;
+    gap: 5px;
+    align-items: center;
+    padding: 6px 8px;
+    font-size: 10px;
+    font-weight: 900;
+  }
+  .mobile-hp-track {
+    height: 8px;
+    overflow: hidden;
+    border: 1px solid #fff;
+    border-radius: 8px;
+    background: #140d31;
+  }
+  .mobile-hp-track i { display: block; width: 100%; height: 100%; background: linear-gradient(90deg, var(--coral), var(--pink)); }
+  .mobile-floor {
+    right: 0;
+    top: 0;
+    display: grid;
+    gap: 2px;
+    padding: 6px 9px;
+    color: var(--yellow);
+    font-size: 12px;
+    font-weight: 900;
+    text-align: right;
+  }
+  .mobile-floor b { color: var(--mint); }
+  .mobile-items {
+    left: 0;
+    bottom: 0;
+    display: flex;
+    gap: 5px;
+    padding: 6px;
+    pointer-events: auto;
+  }
+  .mobile-item-button {
+    display: grid;
+    place-items: center;
+    min-width: 40px;
+    height: 40px;
+    padding: 2px;
+    border: 1px solid #ffffff55;
+    border-radius: 13px;
+    color: var(--cream);
+    background: #171236dd;
+    font-weight: 900;
+  }
+  .mobile-item-button span { font-size: 18px; line-height: 1; }
+  .mobile-item-button b { color: var(--yellow); font-size: 11px; line-height: 1; }
   .overlay { grid-template-columns: 1fr; background: #180e36aa; }
   .overlay-card { grid-column: 1; margin: 12px; padding: 18px; }
   .overlay-card h2 { font-size: 27px; }
@@ -173,7 +242,7 @@ kbd { padding: 2px 4px; border-radius: 4px; color: var(--ink); background: var(-
     border-radius: 22px;
   }
   .status-card { order: -1; }
-  .cat-card { display: none; }
+  .cat-card, .status-card, .growth-card, .inventory-card, .log-card { display: none; }
   .dpad {
     grid-template-columns: repeat(3, 46px);
     gap: 4px;

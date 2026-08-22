@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#24154d">
   <title>ねこねこ摩訶楼</title>
-  <link rel="stylesheet" href="style.css?v=20260822-mobile-status-full">
+  <link rel="stylesheet" href="style.css?v=20260822-mobile-hud">
 </head>
 <body>
   <main class="game-shell">
@@ -44,6 +44,22 @@
     <section class="game-grid">
       <div class="stage-card">
         <canvas id="game" width="960" height="640" aria-label="ローグゲーム画面"></canvas>
+        <div class="mobile-hud" aria-label="スマホ用ステータス">
+          <div class="mobile-hp">
+            <span>HP</span>
+            <div class="mobile-hp-track"><i id="mobileHpBar"></i></div>
+            <b id="mobileHpLabel">9/9</b>
+          </div>
+          <div class="mobile-floor">
+            <span id="mobileFloorLabel">1F</span>
+            <b id="mobileLevelLabel">Lv.1</b>
+          </div>
+          <div class="mobile-items">
+            <button id="mobileFishButton" class="mobile-item-button" aria-label="魚を食べる"><span>🐟</span><b id="mobileFishCount">0</b></button>
+            <div class="mobile-item-button" aria-label="鍵"><span>🗝</span><b id="mobileKeyIcon">?</b></div>
+            <div class="mobile-item-button" aria-label="ねこ剣"><span>🗡</span><b id="mobileWeaponIcon">+0</b></div>
+          </div>
+        </div>
         <div id="announcement" class="announcement hidden"></div>
         <div id="startOverlay" class="overlay">
           <div class="splash-art" role="img" aria-label="猫が不思議なダンジョンを冒険するイメージ"></div>
@@ -124,6 +140,6 @@
       </aside>
     </section>
   </main>
-  <script src="game.js?v=20260822-mobile-status-full"></script>
+  <script src="game.js?v=20260822-mobile-hud"></script>
 </body>
 </html>
