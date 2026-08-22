@@ -91,7 +91,7 @@ h1 { margin-bottom: 0; font-size: clamp(26px, 4vw, 48px); letter-spacing: .05em;
 
 #game { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; touch-action: none; }
 
-.mobile-hud { display: none; }
+.mobile-hud, .mobile-items { display: none; }
 
 .sidebar { display: grid; align-content: start; gap: 12px; }
 .sidebar > section { border-radius: 20px; background: #2f235edd; backdrop-filter: blur(10px); }
@@ -171,7 +171,7 @@ kbd { padding: 2px 4px; border-radius: 4px; color: var(--ink); background: var(-
     display: block;
     pointer-events: none;
   }
-  .mobile-hp, .mobile-floor, .mobile-items {
+  .mobile-hp, .mobile-floor {
     position: absolute;
     border: 2px solid #ffffff66;
     border-radius: 16px;
@@ -210,27 +210,25 @@ kbd { padding: 2px 4px; border-radius: 4px; color: var(--ink); background: var(-
   }
   .mobile-floor b { color: var(--mint); }
   .mobile-items {
-    left: 0;
-    bottom: 0;
     display: flex;
-    gap: 5px;
-    padding: 6px;
-    pointer-events: auto;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 8px;
   }
   .mobile-item-button {
     display: grid;
     place-items: center;
-    min-width: 40px;
-    height: 40px;
-    padding: 2px;
-    border: 1px solid #ffffff55;
-    border-radius: 13px;
+    min-width: 56px;
+    height: 50px;
+    padding: 4px;
+    border: 2px solid #ffffff55;
+    border-radius: 16px;
     color: var(--cream);
     background: #171236dd;
     font-weight: 900;
   }
-  .mobile-item-button span { font-size: 18px; line-height: 1; }
-  .mobile-item-button b { color: var(--yellow); font-size: 11px; line-height: 1; }
+  .mobile-item-button span { font-size: 21px; line-height: 1; }
+  .mobile-item-button b { color: var(--yellow); font-size: 13px; line-height: 1; }
   .overlay { grid-template-columns: 1fr; background: #180e36aa; }
   .overlay-card { grid-column: 1; margin: 12px; padding: 18px; }
   .overlay-card h2 { font-size: 27px; }

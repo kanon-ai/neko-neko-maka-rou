@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#24154d">
   <title>ねこねこ摩訶楼</title>
-  <link rel="stylesheet" href="style.css?v=20260822-mobile-hud">
+  <link rel="stylesheet" href="style.css?v=20260822-mobile-bottom-items">
 </head>
 <body>
   <main class="game-shell">
@@ -53,11 +53,6 @@
           <div class="mobile-floor">
             <span id="mobileFloorLabel">1F</span>
             <b id="mobileLevelLabel">Lv.1</b>
-          </div>
-          <div class="mobile-items">
-            <button id="mobileFishButton" class="mobile-item-button" aria-label="魚を食べる"><span>🐟</span><b id="mobileFishCount">0</b></button>
-            <div class="mobile-item-button" aria-label="鍵"><span>🗝</span><b id="mobileKeyIcon">?</b></div>
-            <div class="mobile-item-button" aria-label="ねこ剣"><span>🗡</span><b id="mobileWeaponIcon">+0</b></div>
           </div>
         </div>
         <div id="announcement" class="announcement hidden"></div>
@@ -134,12 +129,17 @@
             <button data-move="1,0" aria-label="右">▶</button>
             <button data-move="0,1" aria-label="下">▼</button>
           </div>
+          <div class="mobile-items">
+            <button id="mobileFishButton" class="mobile-item-button" aria-label="魚を食べる"><span>🐟</span><b id="mobileFishCount">0</b></button>
+            <div class="mobile-item-button" aria-label="鍵"><span>🗝</span><b id="mobileKeyIcon">?</b></div>
+            <div class="mobile-item-button" aria-label="ねこ剣"><span>🗡</span><b id="mobileWeaponIcon">+0</b></div>
+          </div>
           <p><kbd>矢印 / WASD</kbd> 移動　<kbd>Q</kbd> 魚　<kbd>.</kbd> 待機</p>
           <button id="titleButton" class="title-button">タイトルに戻る</button>
         </section>
       </aside>
     </section>
   </main>
-  <script src="game.js?v=20260822-mobile-hud"></script>
+  <script src="game.js?v=20260822-mobile-bottom-items"></script>
 </body>
 </html>
