@@ -173,6 +173,7 @@ kbd { padding: 2px 4px; border-radius: 4px; color: var(--ink); background: var(-
     border-radius: 22px;
   }
   .status-card { order: -1; }
+  .cat-card { display: none; }
   .dpad {
     grid-template-columns: repeat(3, 52px);
     gap: 5px;
