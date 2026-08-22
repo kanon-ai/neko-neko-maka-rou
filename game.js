@@ -77,6 +77,7 @@
   let logs = [];
 
   function rand(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
+  function clamp(value, min, max) { return Math.min(Math.max(value, min), max); }
   function choice(list) { return list[Math.floor(Math.random() * list.length)]; }
   function key(x, y) { return `${x},${y}`; }
   function distance(a, b) { return Math.abs(a.x - b.x) + Math.abs(a.y - b.y); }
@@ -410,7 +411,10 @@
     const oy = shake ? rand(-shake, shake) : 0;
     shake *= .72;
     ctx.translate(ox, oy);
-    if (player) drawMap();
+    if (player) {
+      applyCamera();
+      drawMap();
+    }
     ctx.restore();
     if (flash > 0) {
       ctx.fillStyle = `rgba(255,90,120,${flash})`;
@@ -426,6 +430,23 @@
       const y = (i * 97) % canvas.height;
       ctx.fillRect(x, y, i % 5 === 0 ? 2 : 1, i % 5 === 0 ? 2 : 1);
     }
+  }
+
+  function applyCamera() {
+    const zoom = window.matchMedia("(max-width: 650px)").matches ? 2.25 : 1;
+    if (zoom === 1) return;
+
+    const viewWidth = canvas.width / zoom;
+    const viewHeight = canvas.height / zoom;
+    const mapWidth = COLS * TILE;
+    const mapHeight = ROWS * TILE;
+    const centerX = player.x * TILE + TILE / 2;
+    const centerY = player.y * TILE + TILE / 2;
+    const cameraX = clamp(centerX - viewWidth / 2, 0, mapWidth - viewWidth);
+    const cameraY = clamp(centerY - viewHeight / 2, 0, mapHeight - viewHeight);
+
+    ctx.scale(zoom, zoom);
+    ctx.translate(-cameraX, -cameraY);
   }
 
   function drawMap() {
