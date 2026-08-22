@@ -211,10 +211,9 @@ kbd { padding: 2px 4px; border-radius: 4px; color: var(--ink); background: var(-
   .mobile-floor b { color: var(--mint); }
   .mobile-items {
     position: absolute;
-    right: 12px;
-    top: 50%;
+    left: 12px;
+    top: 10px;
     display: block;
-    transform: translateY(-50%);
   }
   .mobile-fish-button,
   .mobile-info-chip {
@@ -263,7 +262,7 @@ kbd { padding: 2px 4px; border-radius: 4px; color: var(--ink); background: var(-
     position: relative;
     order: -2;
     min-height: 0;
-    padding: 6px 92px 8px 12px;
+    padding: 6px 12px 8px;
     border-radius: 22px;
   }
   .status-card { order: -1; }
