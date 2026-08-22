@@ -444,7 +444,33 @@
     enemies.forEach((enemy) => {
       if (player.visible.has(key(enemy.x, enemy.y))) drawEnemy(enemy);
     });
+    drawPlayerCursor(player.x, player.y);
     drawCat(player.x, player.y);
+  }
+
+  function drawPlayerCursor(x, y) {
+    const px = x * TILE, py = y * TILE;
+    const pulse = Math.sin(performance.now() / 180) * 2;
+    ctx.save();
+    ctx.lineWidth = 4;
+    ctx.strokeStyle = "#fff7dd";
+    ctx.strokeRect(px + 3.5, py + 3.5, TILE - 7, TILE - 7);
+    ctx.setLineDash([8, 4]);
+    ctx.lineWidth = 3;
+    ctx.strokeStyle = "#ffe56c";
+    ctx.strokeRect(px + 7.5, py + 7.5, TILE - 15, TILE - 15);
+    ctx.setLineDash([]);
+    ctx.fillStyle = "#ffe56c";
+    ctx.beginPath();
+    ctx.moveTo(px + 20, py - 13 - pulse);
+    ctx.lineTo(px + 9, py - 1 - pulse);
+    ctx.lineTo(px + 31, py - 1 - pulse);
+    ctx.closePath();
+    ctx.fill();
+    ctx.strokeStyle = "#29184e";
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    ctx.restore();
   }
 
   function drawTile(x, y, visible) {
