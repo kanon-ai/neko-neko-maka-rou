@@ -462,12 +462,10 @@
 
     const viewWidth = canvas.width / zoom;
     const viewHeight = canvas.height / zoom;
-    const mapWidth = COLS * TILE;
-    const mapHeight = ROWS * TILE;
     const centerX = player.x * TILE + TILE / 2;
     const centerY = player.y * TILE + TILE / 2;
-    const cameraX = clamp(centerX - viewWidth / 2, 0, mapWidth - viewWidth);
-    const cameraY = clamp(centerY - viewHeight / 2, 0, mapHeight - viewHeight);
+    const cameraX = centerX - viewWidth / 2;
+    const cameraY = centerY - viewHeight / 2;
 
     ctx.scale(zoom, zoom);
     ctx.translate(-cameraX, -cameraY);
