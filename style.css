@@ -167,25 +167,26 @@ kbd { padding: 2px 4px; border-radius: 4px; color: var(--ink); background: var(-
   .overlay-card h2 { font-size: 27px; }
   .splash-art { opacity: .48; }
   .controls-card {
-    order: -1;
+    order: -2;
     min-height: 0;
-    padding: 10px 12px 12px;
+    padding: 8px 12px 10px;
     border-radius: 22px;
   }
+  .status-card { order: -1; }
   .dpad {
-    grid-template-columns: repeat(3, 58px);
-    gap: 6px;
+    grid-template-columns: repeat(3, 52px);
+    gap: 5px;
   }
   .dpad button {
-    width: 58px;
-    height: 50px;
+    width: 52px;
+    height: 44px;
     border-radius: 15px;
-    font-size: 20px;
+    font-size: 18px;
   }
   .controls-card p { display: none; }
   .title-button {
-    margin-top: 8px;
-    padding: 8px;
+    margin-top: 7px;
+    padding: 7px;
     font-size: 12px;
   }
 }

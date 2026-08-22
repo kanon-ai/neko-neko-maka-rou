@@ -441,7 +441,7 @@
   }
 
   function applyCamera() {
-    const zoom = usesMobileView() ? 2.25 : 1;
+    const zoom = usesMobileView() ? 1.65 : 1;
     if (zoom === 1) return;
 
     const viewWidth = canvas.width / zoom;
