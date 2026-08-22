@@ -85,6 +85,7 @@
   function tileAt(x, y) { return inBounds(x, y) ? map[y][x] : 0; }
   function enemyAt(x, y) { return enemies.find((e) => e.x === x && e.y === y && e.hp > 0); }
   function itemAt(x, y) { return items.find((item) => item.x === x && item.y === y); }
+  function usesMobileView() { return window.matchMedia("(max-width: 650px), (pointer: coarse)").matches; }
   function addLog(text) {
     logs.unshift(text);
     logs = logs.slice(0, 6);
@@ -402,6 +403,7 @@
 
   function draw() {
     requestAnimationFrame(draw);
+    syncCanvasSize();
     ctx.save();
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = colors.void;
@@ -432,8 +434,14 @@
     }
   }
 
+  function syncCanvasSize() {
+    const targetHeight = usesMobileView() ? 960 : 640;
+    if (canvas.width !== 960) canvas.width = 960;
+    if (canvas.height !== targetHeight) canvas.height = targetHeight;
+  }
+
   function applyCamera() {
-    const zoom = window.matchMedia("(max-width: 650px)").matches ? 2.25 : 1;
+    const zoom = usesMobileView() ? 2.25 : 1;
     if (zoom === 1) return;
 
     const viewWidth = canvas.width / zoom;

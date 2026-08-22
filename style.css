@@ -157,11 +157,11 @@ kbd { padding: 2px 4px; border-radius: 4px; color: var(--ink); background: var(-
   .log-card, .controls-card { min-height: 180px; }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 650px), (pointer: coarse) {
   .game-shell { padding: 10px; }
   .sidebar { grid-template-columns: 1fr; gap: 6px; }
   .stage-card { min-height: 350px; border-radius: 18px; }
-  #game { height: 100%; }
+  #game { aspect-ratio: 1 / 1; }
   .overlay { grid-template-columns: 1fr; background: #180e36aa; }
   .overlay-card { grid-column: 1; margin: 12px; padding: 18px; }
   .overlay-card h2 { font-size: 27px; }
