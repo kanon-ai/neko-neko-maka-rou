@@ -210,10 +210,11 @@ kbd { padding: 2px 4px; border-radius: 4px; color: var(--ink); background: var(-
   }
   .mobile-floor b { color: var(--mint); }
   .mobile-items {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 18px;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    display: block;
+    transform: translateY(-50%);
   }
   .mobile-fish-button,
   .mobile-info-chip {
@@ -259,9 +260,10 @@ kbd { padding: 2px 4px; border-radius: 4px; color: var(--ink); background: var(-
   .overlay-card h2 { font-size: 27px; }
   .splash-art { opacity: .48; }
   .controls-card {
+    position: relative;
     order: -2;
     min-height: 0;
-    padding: 6px 12px 8px;
+    padding: 6px 92px 8px 12px;
     border-radius: 22px;
   }
   .status-card { order: -1; }
