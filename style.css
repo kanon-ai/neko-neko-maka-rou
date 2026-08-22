@@ -161,7 +161,7 @@ kbd { padding: 2px 4px; border-radius: 4px; color: var(--ink); background: var(-
   .game-shell { padding: 10px; }
   .sidebar { grid-template-columns: 1fr; gap: 6px; }
   .stage-card { min-height: 350px; border-radius: 18px; }
-  #game { aspect-ratio: 1 / 1; }
+  #game { width: min(100%, 330px); aspect-ratio: 1 / 1; margin: auto; }
   .overlay { grid-template-columns: 1fr; background: #180e36aa; }
   .overlay-card { grid-column: 1; margin: 12px; padding: 18px; }
   .overlay-card h2 { font-size: 27px; }
@@ -169,26 +169,26 @@ kbd { padding: 2px 4px; border-radius: 4px; color: var(--ink); background: var(-
   .controls-card {
     order: -2;
     min-height: 0;
-    padding: 8px 12px 10px;
+    padding: 6px 12px 8px;
     border-radius: 22px;
   }
   .status-card { order: -1; }
   .cat-card { display: none; }
   .dpad {
-    grid-template-columns: repeat(3, 52px);
-    gap: 5px;
+    grid-template-columns: repeat(3, 46px);
+    gap: 4px;
   }
   .dpad button {
-    width: 52px;
-    height: 44px;
+    width: 46px;
+    height: 38px;
     border-radius: 15px;
-    font-size: 18px;
+    font-size: 17px;
   }
   .controls-card p { display: none; }
   .title-button {
-    margin-top: 7px;
-    padding: 7px;
-    font-size: 12px;
+    margin-top: 6px;
+    padding: 6px;
+    font-size: 11px;
   }
 }
 
